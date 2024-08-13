@@ -1,0 +1,102 @@
+$main-color-link:#667085;
+
+.links{
+    color: $main-color-link;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    font-family:  sans-serif;
+    &:hover{
+        opacity: 0.6;
+    }
+}
+
+header  {
+    border-bottom: 1px solid #aaa;
+    height: 70px;
+    line-height: 70px;
+    position: fixed;
+    width: 100%;
+    background-color: #FFF;
+    top: 0px;
+    z-index: 2;
+    .container-fluid{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    
+    }
+    .shopping-cart{
+        padding-top: 5px;
+        margin-left: 14px;
+        margin-right: 14px; 
+        position: relative;   
+        .link{
+            margin-left: 13px;
+        }
+        .count{
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: #41CCCC;
+            color: #FFF;
+            text-align: center;
+            line-height: 14px;
+            font-size: 12px;
+            top: 15px;
+            right: -5px;        
+        }
+    }
+    .products-search{
+        position: relative;
+        input{
+            border: 0.5px solid #424242;
+            width: 319px;
+            height: 32px;
+            border-radius: 8px;
+            padding-left: 32px;
+        }
+        .search-icon{
+            position: absolute;
+            top: 5px;
+            left: 10px;        
+        }
+        img{
+            position: absolute;
+            width: 15px;
+            right: 14px;
+            top: 28px;        
+        }
+    }
+    .navb-logo{
+        display: flex;
+        padding-left: 55px;
+        svg{
+            margin-top: 15px;
+        }
+        .logo-title{
+            cursor: pointer;
+            margin-left: 10px;
+            font-weight: 500;
+            font-family: sans-serif;        
+        }
+        .item{
+            margin-left: 60px;
+            a{
+                @extend .links;
+            }
+        }
+    }
+    .navb-items{
+        line-height: 70px;
+        padding-right: 76px;
+        a{
+            @extend .links;
+        }
+    }
+  }
+  .d-flex{
+    display: flex;
+  }

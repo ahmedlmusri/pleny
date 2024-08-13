@@ -1,0 +1,43 @@
+.footer {
+    background-color: #1D2939; /* Dark blue background */
+    padding: 48px, 0px, 48px, 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    position: fixed;
+    height: 80px;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-content {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.logo span {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+.copyright {
+    font-size: 16px;
+    color: #98A2B3;
+    font-family: sans-serif;
+}

@@ -1,0 +1,81 @@
+<div class="container">
+    <div class="header-product">
+        <h1>Products</h1>
+        <ul class="header-products">
+            <li>Home / </li>
+            <li>Products / </li>
+            <li class="category">{{selectedCategoryCheckbox}} </li>
+            <li *ngIf="searchQuery" class="filterd_product"> / {{searchQuery}}</li>
+
+        </ul>
+    </div>
+    <div class="product-list-content">
+        <aside class="sidebar">
+            <h3>Products</h3>
+            <ul>
+                <li (clcik)="loadProducts()">
+                    <input type="radio" name="selectedCategory" value="all" [(ngModel)]="selectedCategoryCheckbox" (change)="loadProducts()">
+                    <a>All</a></li>
+                <ng-container *ngFor="let cat of categories">
+                    <li (click)="filterByCategory(cat)">
+                        <input type="radio" name="selectedCategory" [value]="cat" [(ngModel)]="selectedCategoryCheckbox" (change)="filterByCategory(cat)">
+                        <a>{{cat}}</a>
+                    </li>
+
+                </ng-container>
+            </ul>
+        </aside>
+        
+        <div class="product-content">
+            <div class="products_count">
+                <div class="d-flex">
+                    <div>({{products.length}}) Products Found</div>
+                    <div (click)="sortProducts(sorting == 'asc' ? 'desc' : 'asc')">
+                        <span>Sort By: {{sorting}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="products">
+                <div class="product" *ngFor="let item of products">
+                    <div class="discount">-{{item.discountPercentage}}%</div>
+                    <img [src]="item.thumbnail" [alt]="item.title">
+                    <div class="product-details">
+                        <h2>{{item.title}}</h2>
+                        <p class="desc">{{item.description | slice : 0 : 40}}.</p>
+                        <p class="price">
+                            <span class="old-price">549 USD</span>
+                            <span class="new-price">{{item.price}} USD</span>
+                        </p>
+                        <p class="sub-title">Brand: <span>{{item.brand}}</span></p>
+                        <p class="sub-title">Category: <span>{{item.category}}</span></p>
+                        <p class="sub-title">In stock: <span>{{item.stock}}</span></p>
+                        <button (click)="addToCart(item.id)">Add to Cart</button>
+    
+                    </div>
+                </div>
+            </div>
+            <div class="pagination">
+                <button class="control" (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">
+                    <
+                </button>
+                
+                <span *ngFor="let page of pageNumbers">
+                  <button class="button-navigate"
+                    *ngIf="page !== '...'"
+                    (click)="onPageChange(+page)"
+                    [ngClass]="{'active-page': page === currentPage}">
+                    {{ page }}
+                  </button>
+                  <span *ngIf="page === '...'">...</span>
+                </span>
+                
+                <button class="control" (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === totalPages">
+                    >
+                </button>
+              </div>
+    
+        </div>
+            
+    </div>
+</div>
+
